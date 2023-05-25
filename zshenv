@@ -1,0 +1,1 @@
+export CNF=$HOME/cnf
