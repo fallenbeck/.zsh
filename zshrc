@@ -134,4 +134,10 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 [ -f ~/.myrc ] && source ~/.myrc
 [ -f ~/.aliases ] && source ~/.aliases
 
+if [ -f ~/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme ]
+then
+    source ~/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+    [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
+fi
+
 # EOF
