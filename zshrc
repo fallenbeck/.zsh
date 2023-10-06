@@ -3,11 +3,12 @@
 # I went away from oh-my-zsh to get a single .zshrc file that can easily be
 # copied to other machines when needed.
 #
-# Document structure
+# Document structure:
 # 1. Plugins
-# 2. Prompt
-# 3. History
-# 4. Completion
+# 2. History
+# 3. Completion
+# 4. Misc
+# 5. Prompt
 
 
 
@@ -45,44 +46,8 @@ fi
 
 
 
-# =========
-# 2. Prompt
-# =========
-
-# Set up the prompt
-autoload -Uz promptinit
-promptinit
-# prompt adam1
-# prompt suse
-
-autoload -U colors && colors
-# PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-
-# Autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
-autoload -Uz add-zsh-hook vcs_info
-# Enable substitution in the prompt.
-setopt prompt_subst
-# Run vcs_info just before a prompt is displayed (precmd)
-add-zsh-hook precmd vcs_info
-
-# Git status
-# Enable checking for (un)staged changes, enabling use of %u and %c
-zstyle ':vcs_info:*' check-for-changes true
-# Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
-zstyle ':vcs_info:*' unstagedstr ' *'
-zstyle ':vcs_info:*' stagedstr ' +'
-# Set the format of the Git information for vcs_info
-zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
-
-# add ${vcs_info_msg_0} to the prompt
-#PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%{$fg[red]%}${vcs_info_msg_0_}%{$reset_color%} %% '
-PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m:%{$fg[yellow]%}%~ %{$reset_color%}%{$fg[red]%}${vcs_info_msg_0_}%{$reset_color%} %% '
-
-
-
 # ==========
-# 3. History
+# 2. History
 # ==========
 
 setopt histignorealldups sharehistory
@@ -100,8 +65,9 @@ HISTFILE=~/.zsh_history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
+
 # =============
-# 4. Completion
+# 3. Completion
 # =============
 
 # Use modern completion system
@@ -141,14 +107,64 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+
+
+# =======
+# 4. Misc
+# =======
+
 # User configuration
 [ -f ~/.myrc ] && source ~/.myrc
 [ -f ~/.aliases ] && source ~/.aliases
 
-if [ -f ~/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme ]
-then
-    source ~/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
-    [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
-fi
+
+
+# =========
+# 5. Prompt
+# =========
+
+# Manual setup
+#
+# # Set up the prompt
+# autoload -Uz promptinit
+# promptinit
+# # prompt adam1
+# # prompt suse
+# 
+# autoload -U colors && colors
+# # PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+# 
+# # Autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
+# autoload -Uz add-zsh-hook vcs_info
+# # Enable substitution in the prompt.
+# setopt prompt_subst
+# # Run vcs_info just before a prompt is displayed (precmd)
+# add-zsh-hook precmd vcs_info
+# 
+# # Git status
+# # Enable checking for (un)staged changes, enabling use of %u and %c
+# zstyle ':vcs_info:*' check-for-changes true
+# # Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
+# zstyle ':vcs_info:*' unstagedstr ' *'
+# zstyle ':vcs_info:*' stagedstr ' +'
+# # Set the format of the Git information for vcs_info
+# zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
+# zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+# 
+# # add ${vcs_info_msg_0} to the prompt
+# #PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%{$fg[red]%}${vcs_info_msg_0_}%{$reset_color%} %% '
+# PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m:%{$fg[yellow]%}%~ %{$reset_color%}%{$fg[red]%}${vcs_info_msg_0_}%{$reset_color%} %% '
+
+
+# Powerlevel10k
+# if [ -f ~/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme ]
+# then
+#     source ~/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+#     [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
+# fi
+
+
+# Starship.rs
+eval $(starship init zsh)
 
 # EOF
