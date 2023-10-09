@@ -14,12 +14,12 @@ export SAVHIST=$HISTSIZE
 
 # load fzf
 export FZF_DEFAULT_OPTS='--border'
-source /opt/homebrew/Cellar/fzf/*/shell/key-bindings.zsh
-source /opt/homebrew/Cellar/fzf/*/shell/completion.zsh
+source /usr/local/Cellar/fzf/*/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/*/shell/completion.zsh
 
 # load plugins
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
