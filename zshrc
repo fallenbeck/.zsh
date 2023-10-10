@@ -13,23 +13,33 @@ export HISTSIZE=100000
 export SAVHIST=$HISTSIZE
 
 # load fzf
-export FZF_DEFAULT_OPTS='--border'
-if [ -d /usr/local/Cellar/fzf ]
-then
-    source /usr/local/Cellar/fzf/*/shell/key-bindings.zsh
-    source /usr/local/Cellar/fzf/*/shell/completion.zsh
-fi
-if [ -d /opt/homebrew/Cellar/fzf ]
-then
-    source /opt/homebrew/Cellar/fzf/*/shell/key-bindings.zsh
-    source /opt/homebrew/Cellar/fzf/*/shell/completion.zsh
-fi
+# export FZF_DEFAULT_OPTS='--border'
+# if [ -d /usr/local/Cellar/fzf ]
+# then
+#     source /usr/local/Cellar/fzf/*/shell/key-bindings.zsh
+#     source /usr/local/Cellar/fzf/*/shell/completion.zsh
+# fi
+# if [ -d /opt/homebrew/Cellar/fzf ]
+# then
+#     source /opt/homebrew/Cellar/fzf/*/shell/key-bindings.zsh
+#     source /opt/homebrew/Cellar/fzf/*/shell/completion.zsh
+# fi
 
 # load plugins
-[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+for p in \
+    ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+    ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+    ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+do
+    echo "Try to source $p"
+    [ -f "$p" ] && source "$p" && echo "done"
+done
+
+# [ -f ~/.config/zsh/plugins/zsh-autosuggestions/ ]
+# [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # load git automcompletion
 autoload -Uz compinit && compinit
