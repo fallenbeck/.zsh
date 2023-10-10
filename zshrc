@@ -1,5 +1,6 @@
-# read starship prompt config
-eval "$(starship init zsh)"
+# Extend PATH
+[ -d ~/bin ] && export PATH=~/bin:$PATH
+[ -d /opt/homebrew/bin ] && export PATH=/opt/homebrew/bin:$PATH
 
 # editor configuration
 export EDITOR=nvim
@@ -30,3 +31,7 @@ autoload -Uz compinit && compinit
 # User configuration
 [ -f ~/.myrc ] && source ~/.myrc
 [ -f ~/.aliases ] && source ~/.aliases
+
+# read starship prompt config
+[ ! -z "$(which starship)" ] && eval "$(starship init zsh)"
+
