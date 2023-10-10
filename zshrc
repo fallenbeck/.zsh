@@ -4,9 +4,6 @@ eval "$(starship init zsh)"
 # editor configuration
 export EDITOR=nvim
 
-# add various bin locations to PATH
-export PATH=$HOME/bin:$PATH
-
 # set up better history
 setopt HIST_IGNORE_ALL_DUPS
 export HISTSIZE=100000
