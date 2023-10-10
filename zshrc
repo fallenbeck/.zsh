@@ -10,8 +10,13 @@ setopt HIST_IGNORE_ALL_DUPS
 export HISTSIZE=100000
 export SAVHIST=$HISTSIZE
 
-# Zsh to use the same colors as ls
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# Prettier colorization
+export CLICOLOR=1
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 
 # Setup fzf
 if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
