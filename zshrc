@@ -10,6 +10,11 @@ setopt HIST_IGNORE_ALL_DUPS
 export HISTSIZE=100000
 export SAVHIST=$HISTSIZE
 
+# Nice colors
+export CLICOLOR=1
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+alias ll="ls -alG"
+
 # Setup fzf
 if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
