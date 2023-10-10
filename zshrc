@@ -9,12 +9,10 @@ setopt HIST_IGNORE_ALL_DUPS
 export HISTSIZE=100000
 export SAVHIST=$HISTSIZE
 
-
 # Setup fzf
 if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
 fi
-
 
 # Source plugins, fzf auto-completion, and fzf key bindings
 for p in \
@@ -26,7 +24,6 @@ for p in \
 do
     [ -f $p ] && source $p
 done
-
 
 autoload -Uz compinit && compinit
 
