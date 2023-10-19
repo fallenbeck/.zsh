@@ -6,13 +6,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Extend PATH
-#[ -d /opt/homebrew/bin ] && export PATH=/opt/homebrew/bin:$PATH
-#[ -d /usr/local/bin ] && export PATH=/usr/local/bin:$PATH
-#[ -d ~/bin ] && export PATH=~/bin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=~/bin:$PATH
-export PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
+[ -d /opt/homebrew/bin ] && export PATH=/opt/homebrew/bin:$PATH
+[ -d /usr/local/bin ] && export PATH=/usr/local/bin:$PATH
+[ -d ~/bin ] && export PATH=~/bin:$PATH
+if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
+    PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
+fi
+# export PATH=/opt/homebrew/bin:$PATH
+# export PATH=/usr/local/bin:$PATH
+# export PATH=~/bin:$PATH
+# export PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
 
 # editor configuration
 export EDITOR=nvim
@@ -29,9 +32,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-#if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
-#    PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
-#fi
 
 # Source plugins, fzf auto-completion, and fzf key bindings
 for p in \
@@ -41,17 +41,17 @@ for p in \
     ~/.config/zsh/plugins/fzf/shell/key-bindings.zsh \
     ;
 do
-    #[ -f $p ] && source $p
-    source $p
+    [ -f $p ] && source $p
+    # source $p
 done
 
 autoload -Uz compinit && compinit
 
 # User configuration
-#[ -f ~/.myrc ] && source ~/.myrc
-#[ -f ~/.aliases ] && source ~/.aliases
-source ~/.myrc
-source ~/.aliases
+[ -f ~/.myrc ] && source ~/.myrc
+[ -f ~/.aliases ] && source ~/.aliases
+#source ~/.myrc
+#source ~/.aliases
 
 # Load powerlevel10k theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
