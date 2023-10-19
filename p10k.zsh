@@ -1,0 +1,1 @@
+/Users/di25xib/.zsh/p10k.zsh
