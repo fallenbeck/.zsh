@@ -1,6 +1,15 @@
 # Extend PATH
-[ -d ~/bin ] && export PATH=~/bin:$PATH
-[ -d /opt/homebrew/bin ] && export PATH=/opt/homebrew/bin:$PATH
+#[ -d /opt/homebrew/bin ] && export PATH=/opt/homebrew/bin:$PATH
+#[ -d /usr/local/bin ] && export PATH=/usr/local/bin:$PATH
+#[ -d ~/bin ] && export PATH=~/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=~/bin:$PATH
+export PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
+
+# read starship prompt config
+#[ ! -z "$(which starship)" ] && eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # editor configuration
 export EDITOR=nvim
@@ -17,11 +26,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-
-# Setup fzf
-if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
-fi
+#if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
+#    PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
+#fi
 
 # Source plugins, fzf auto-completion, and fzf key bindings
 for p in \
@@ -31,15 +38,16 @@ for p in \
     ~/.config/zsh/plugins/fzf/shell/key-bindings.zsh \
     ;
 do
-    [ -f $p ] && source $p
+    #[ -f $p ] && source $p
+    source $p
 done
 
 autoload -Uz compinit && compinit
 
 # User configuration
-[ -f ~/.myrc ] && source ~/.myrc
-[ -f ~/.aliases ] && source ~/.aliases
+#[ -f ~/.myrc ] && source ~/.myrc
+#[ -f ~/.aliases ] && source ~/.aliases
+source ~/.myrc
+source ~/.aliases
 
-# read starship prompt config
-[ ! -z "$(which starship)" ] && eval "$(starship init zsh)"
-
+# EOF
