@@ -39,6 +39,7 @@ for p in \
     ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
     ~/.config/zsh/plugins/fzf/shell/completion.zsh \
     ~/.config/zsh/plugins/fzf/shell/key-bindings.zsh \
+    ~/.config/zsh/functions/fzf.zsh \
     ;
 do
     [ -f $p ] && source $p
