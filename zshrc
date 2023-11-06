@@ -38,9 +38,13 @@ if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
 fi
 
 # set up better history
-setopt HIST_IGNORE_ALL_DUPS
-export HISTSIZE=20000
-export SAVHIST=$HISTSIZE
+HISTFILE=~/.zsh_history
+HISTSIZE=20000
+SAVHIST=$HISTSIZE
+setopt HIST_IGNORE_ALL_DUPS     # ignore duplicate commands in history list
+setopt HIST_IGNORE_SPACE        # ignore commands that start with space
+setopt HIST_VERIFY              # show command with history expansion
+setopt SHARE_HISTORY            # share command history data between terminals
 
 # Prettier colorization
 export CLICOLOR=1
