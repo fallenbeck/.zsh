@@ -37,9 +37,6 @@ if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
     PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
 fi
 
-# editor configuration
-export EDITOR=nvim
-
 # set up better history
 setopt HIST_IGNORE_ALL_DUPS
 export HISTSIZE=20000
