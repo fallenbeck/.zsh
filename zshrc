@@ -5,6 +5,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Options
+setopt autocd               # change directory bs just typing its name
+setopt correct              # auto correct mistakes
+setopt interactivecomments  # allow comments in interactive mode
+setopt magicequalsubst      # enable filename expansion for arguments of the
+                            # form 'anything=expression'
+setopt nonomatch            # hide error messages if there is no match for pattern
+setopt notify               # report the status for background jobs immediately
+setopt numericglobsort      # sort filenames numerically when it makes sense
+setopt promptsubst          # enable command substitution in prompt
+
 # General
 autoload -Uz compinit; compinit
 autoload -Uz colors; colors
