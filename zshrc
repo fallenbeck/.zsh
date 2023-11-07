@@ -40,7 +40,7 @@ fi
 # set up better history
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
-SAVHIST=$HISTSIZE
+SAVEHIST=$HISTSIZE
 setopt HIST_IGNORE_ALL_DUPS     # ignore duplicate commands in history list
 setopt HIST_IGNORE_SPACE        # ignore commands that start with space
 setopt HIST_VERIFY              # show command with history expansion
