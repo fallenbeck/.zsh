@@ -44,7 +44,7 @@ SAVEHIST=$HISTSIZE
 setopt HIST_IGNORE_ALL_DUPS     # ignore duplicate commands in history list
 setopt HIST_IGNORE_SPACE        # ignore commands that start with space
 setopt HIST_VERIFY              # show command with history expansion
-setopt SHARE_HISTORY            # share command history data between terminals
+#setopt SHARE_HISTORY            # share command history data between terminals
 
 # Prettier colorization
 export CLICOLOR=1
