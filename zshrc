@@ -30,9 +30,6 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 
 # Extend PATH
-[ -d /opt/homebrew/bin ] && export PATH=/opt/homebrew/bin:$PATH
-[ -d /usr/local/bin ] && export PATH=/usr/local/bin:$PATH
-[ -d ~/bin ] && export PATH=~/bin:$PATH
 if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
     PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
 fi
@@ -55,22 +52,22 @@ alias l='ls -CF'
 
 # Source plugins, fzf auto-completion, and fzf key bindings
 for p in \
-    ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
-    ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
-    ~/.config/zsh/plugins/fzf/shell/*.zsh \
-    ~/.config/zsh/functions/*.zsh \
+    "${HOME}"/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+    "${HOME}"/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+    "${HOME}"/.config/zsh/plugins/fzf/shell/*.zsh \
+    "${HOME}"/.config/zsh/functions/*.zsh \
     ;
 do
-    [ -f $p ] && source $p
+    [ -f "$p" ] && source "$p"
 done
 
 # User configuration
-[ -f ~/.myrc ] && source ~/.myrc
-[ -f ~/.aliases ] && source ~/.aliases
+[ -f "${HOME}"/.myrc ] && source "${HOME}"/.myrc
+[ -f "${HOME}"/.aliases ] && source "${HOME}"/.aliases
 
 # Load powerlevel10k theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source "${HOME}"/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f "${HOME}"/.p10k.zsh ]] || source "${HOME}"/.p10k.zsh
 
 # EOF
