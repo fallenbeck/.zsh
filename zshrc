@@ -58,6 +58,9 @@ setopt HIST_REDUCE_BLANKS       # Remove superfluous blanks before recording ent
 setopt HIST_VERIFY              # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                # Beep when accessing nonexistent history.
 
+# Completion styling
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Colorize completions
+
 # Source plugins, fzf auto-completion, and fzf key bindings
 for p in \
     "${HOME}"/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
