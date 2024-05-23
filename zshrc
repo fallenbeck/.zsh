@@ -79,6 +79,11 @@ do
     [ -f "$p" ] && source "$p"
 done
 
+# Basic aliases
+alias ls="ls --color=auto"
+alias ls="ls -l"
+alias la="ls -a"
+
 # User configuration
 [ -f "${HOME}"/.myrc ] && source "${HOME}"/.myrc
 [ -f "${HOME}"/.aliases ] && source "${HOME}"/.aliases
