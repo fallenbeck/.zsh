@@ -81,7 +81,7 @@ done
 
 # Basic aliases
 alias ls="ls --color=auto"
-alias ls="ls -l"
+alias ll="ls -l"
 alias la="ls -a"
 
 # User configuration
