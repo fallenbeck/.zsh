@@ -6,10 +6,10 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
  
-# Pure prompt
+# # Pure prompt
 fpath+=($HOME/.config/zsh/themes/pure)
 autoload -U promptinit; promptinit
-# zstyle :prompt:pure:git:stash show yes
+# # zstyle :prompt:pure:git:stash show yes
 prompt pure
 
 # Options
@@ -93,5 +93,8 @@ alias la="ls -a"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # source "${HOME}"/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 # [[ ! -f "${HOME}"/.p10k.zsh ]] || source "${HOME}"/.p10k.zsh
+
+# startship.rs
+# eval "$(starship init zsh)"
 
 # EOF
