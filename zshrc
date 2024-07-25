@@ -68,6 +68,9 @@ setopt HIST_BEEP                # Beep when accessing nonexistent history.
 # Completion styling
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Colorize completions
 
+# NOTE: For correct functionality TERM should have been set to xterm-256color
+# (and not xterm-kitty for example which would break thinks.)
+#
 # Source plugins, fzf auto-completion, and fzf key bindings
 for p in \
     "${HOME}"/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
