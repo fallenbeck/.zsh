@@ -6,11 +6,11 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
  
-# # Pure prompt
-fpath+=($HOME/.config/zsh/themes/pure)
-autoload -U promptinit; promptinit
-# # zstyle :prompt:pure:git:stash show yes
-prompt pure
+# # # Pure prompt
+# fpath+=($HOME/.config/zsh/themes/pure)
+# autoload -U promptinit; promptinit
+# # # zstyle :prompt:pure:git:stash show yes
+# prompt pure
 
 # Options
 setopt autocd               # change directory bs just typing its name
@@ -98,6 +98,6 @@ alias la="ls -a"
 # [[ ! -f "${HOME}"/.p10k.zsh ]] || source "${HOME}"/.p10k.zsh
 
 # startship.rs
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # EOF
