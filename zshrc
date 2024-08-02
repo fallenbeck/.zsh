@@ -36,11 +36,6 @@ zle -N self-insert url-quote-magic
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
-# Extend PATH
-if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
-    PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
-fi
-
 # set up better history
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
@@ -75,8 +70,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Colorize completions
 for p in \
     "${HOME}"/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
     "${HOME}"/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
-    "${HOME}"/.config/zsh/plugins/fzf/shell/*.zsh \
-    "${HOME}"/.config/zsh/functions/*.zsh \
     ;
 do
     [ -f "$p" ] && source "$p"
@@ -86,6 +79,26 @@ done
 alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -a"
+
+# Initialize fzf if installed
+if [ -x "$(which fzf)" ]
+then
+  # Extend PATH
+  if [[ ! "$PATH" == *$HOME/.config/zsh/plugins/fzf/bin* ]]; then
+      PATH="${PATH:+${PATH}:}$HOME/.config/zsh/plugins/fzf/bin"
+  fi
+
+  # Load fzf functions
+  for p in \
+      "${HOME}"/.config/zsh/plugins/fzf/shell/*.zsh \
+      "${HOME}"/.config/zsh/functions/*.zsh \
+      ;
+  do
+      [ -f "$p" ] && source "$p"
+  done
+else
+  echo "fzf is not installed"
+fi
 
 # Powerlevel10k
 # Load powerlevel10k theme
@@ -108,7 +121,7 @@ fi
 if [ -x "$(which zoxide)" ]
 then
   eval "$(zoxide init zsh)"
-else
+fi
 
 # User configuration
 [ -f "${HOME}"/.myrc ] && source "${HOME}"/.myrc
