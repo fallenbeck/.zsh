@@ -97,7 +97,21 @@ alias la="ls -a"
 # source "${HOME}"/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 # [[ ! -f "${HOME}"/.p10k.zsh ]] || source "${HOME}"/.p10k.zsh
 
-# startship.rs
-eval "$(starship init zsh)"
+# Use startship.rs when installed, otherwise use pure prompt
+if [ -x "$(which starship)" ]
+then
+  eval "$(starship init zsh)"
+else
+  fpath+=($HOME/.config/zsh/themes/pure)
+  autoload -U promptinit; promptinit
+  # # zstyle :prompt:pure:git:stash show yes
+  prompt pure
+fi
+
+# Use zoxide when installed
+if [ -x "$(which zoxide)" ]
+then
+  eval "$(zoxide init zsh)"
+else
 
 # EOF
