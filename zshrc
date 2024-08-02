@@ -87,10 +87,6 @@ alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -a"
 
-# User configuration
-[ -f "${HOME}"/.myrc ] && source "${HOME}"/.myrc
-[ -f "${HOME}"/.aliases ] && source "${HOME}"/.aliases
-
 # Powerlevel10k
 # Load powerlevel10k theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -113,5 +109,9 @@ if [ -x "$(which zoxide)" ]
 then
   eval "$(zoxide init zsh)"
 else
+
+# User configuration
+[ -f "${HOME}"/.myrc ] && source "${HOME}"/.myrc
+[ -f "${HOME}"/.aliases ] && source "${HOME}"/.aliases
 
 # EOF
