@@ -75,8 +75,9 @@ do
     [ -f "$p" ] && source "$p"
 done
 
-# Basic aliases
-# alias ls="ls --color=auto"
+# basic ls configuration
+export CLICOLOR=1
+[ "$(uname)" = "Linux" ] && alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -a"
 
