@@ -123,7 +123,10 @@ then
 fi
 
 # User configuration
-[ -f "${HOME}"/.myrc ] && source "${HOME}"/.myrc && return 0
-[ -f "${HOME}"/.aliases ] && source "${HOME}"/.aliases && return 0
+[ -f "${HOME}"/.myrc ] && source "${HOME}"/.myrc
+[ -f "${HOME}"/.aliases ] && source "${HOME}"/.aliases
+
+# Return successfully in any case
+return 0
 
 # EOF
